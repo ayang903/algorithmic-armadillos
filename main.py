@@ -4,14 +4,6 @@ import plotly.express as px
 import plotly.graph_objects as go
 import statistics
 
-'''
-- Team members/Team Name/bio: Name, grade, prior experience 
-- Context to the dataset: What was the hypothesis/thesis? Why is this dataset important? 
-- 3-4 Important Visualizations
-- Analyses: Explain what can be taken away from each of the graphs.
-- Overall conclusions. 
-'''
-
 st.title("Anime EDA")
 st.markdown("Here is our EDA on Anime!")
 
@@ -24,7 +16,7 @@ st.write(amelia_bio)
 alexia_bio = 'My name is Alexia, and I will be going into my freshman year of college this Fall in 2023. My prior experience with coding includes the course of AP Computer Science Principles my junior year of high school, a Summer Immersion Program hosted by Girls Who Code, and a Self-Paced Program also hosted by Girls Who Code. The Self-Paced Program included courses on web development, web design, and presenting information on an event through a Python algorithmic.'
 st.write(alexia_bio)
 
-izaac_bio = 'My name is Izaac, I am going to be a highschool senior this fall semester and I havve taken mutiple computer programing cources before. I have taken AP Computer Science in highschool, a HTMl programming cource at the University of Alaska Fairbanks, and I am going to be taking AP Computer Science A at highschool this year.'
+izaac_bio = 'My name is Izaac, I am going to be a highschool senior this fall semester and I have taken mutiple computer programing cources before. I have taken AP Computer Science in highschool, a HTMl programming cource at the University of Alaska Fairbanks, and I am going to be taking AP Computer Science A at highschool this year.'
 st.write(izaac_bio)
 
 navy_bio = "My name is Navy, I'm a rising senior, and I have taken a few computer science courses including AP Comp. Sci. Principles. I know some Java, Javascript, and C, as well as Python which we used for this project."
@@ -169,17 +161,17 @@ st.plotly_chart(alexiavar2)
 # alexiavar5 = px.pie(df, values = historicaldf.values, names=historicaldf.index, title='Historical', color_discrete_sequence=px.colors.sequential.Purples_r)
 # st.plotly_chart(alexiavar5)
 
-explanation_alexia = 'According to the above bar graph, the top four themes for anime are Music, School, Mecha, and Historical. The four pie charts visually show us about what percent of the anime with these themes are currently airing or have finished airing. As a result, it is shown the anime with the Historical and Mecha themes have finished airing, while there are still some anime airing with the Music and School themes. Thus, these pie charts show that anime with Music and School themes are more likely to be currently airing than those with Mecha and Historical themes.'
+explanation_alexia = 'According to the above bar graph, the top five themes for anime are [], Music, School, Mecha, and Historical. The five pie charts visually show us about what percent of the anime with these themes are currently airing or have finished airing. As a result, it is shown the anime with the Historical and Mecha themes have finished airing, while there are still some anime airing with the [], Music and School themes. Thus, these pie charts show that anime with no specific theme and Music and School themes are more likely to be currently airing than those with Mecha and Historical themes.'
 st.write(explanation_alexia)
 
 #Izaac
 score_v_scored = px.scatter(df, x = 'scored_by', y = 'score', title = 'Number of Scores vs. Score', labels={"scored_by": "Number of Scores", 'score': 'Average Score'}, color='type', color_continuous_scale = 'viridis')
 st.plotly_chart(score_v_scored)
-st.write('This graph show a general exponetial curve that the more views a show has the higher it is rated. One can assume that this is because the better shows will be more popular. This graph also indicates that TV and Movies are scored a lot more than other types of media, and are usually scored higher.')
+st.write('This graph show a general exponetial curve that depicts that the more scores a show has the higher it is rated. One can assume that this is because the better shows will be more popular, thus giving them more scores. This graph also indicates that TV and Movies are scored a lot more often than other types of media, and are usually scored higher.')
 
 scores = px.histogram(df, x = df['score'], labels={'score': 'Average Score'})
 st.plotly_chart(scores)
-st.write('This graph shows the most common scores for shows. This graph shows a pretty perfect standard deviation with the average score being about 6.6')
+st.write('This graph shows the most common scores for shows. This graph shows a pretty perfect standard deviation with the average score being about 6.6.')
 
 
 
