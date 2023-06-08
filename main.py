@@ -132,7 +132,7 @@ else:
 daf_themes = df['themes'].value_counts()
 themedf = df['themes'].value_counts().head(10)
 
-alexiavar1 = px.bar(themedf, title='Top Ten Themes of Anime',x=themedf.index, y=themedf.values, color=themedf.index, color_continuous_scale=px.colors.sequential.Turbo)
+alexiavar1 = px.bar(themedf, title='Top Ten Themes of Anime',x=themedf.index, y=themedf.values)
 st.plotly_chart(alexiavar1)
 
 musicdf = df[df['themes'] == "['Music']"]['status'].value_counts()
