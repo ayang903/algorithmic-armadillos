@@ -2,6 +2,7 @@ import pandas as pd
 import streamlit as st
 import plotly.express as px
 import plotly.graph_objects as go
+import statistics
 
 st.title("Anime EDA")
 st.markdown("Here is our EDA on Anime!")
@@ -23,7 +24,7 @@ sorted_score_dict = sorted(score_dict.items(), key = lambda x:x[1], reverse = Tr
 final_dict = dict(sorted_score_dict)
 final_dict
 
-import plotly.express as px
+
 anish_var = px.bar(x = final_dict.keys(),
              y = final_dict.values(),
              title="Anime Source Content Effect on Scores")
@@ -35,11 +36,11 @@ anish_var.update_layout(
         dtick = 0.5
     )
 )
-fig.update_layout(
+anish_var.update_layout(
     xaxis_title="Source", yaxis_title="Score"
 )
-fig.show()
-
+#anish_var.show()
+st.plotly_chart(anish_var)
 
 #Amelia
 
@@ -62,15 +63,19 @@ ameliaVar.update_layout (
 
 ameliaVar.update_yaxes(range = [ 5.5, 7])
 
-
+st.plotly
 #Navy
 ep_v_score = px.scatter(df, x = df['episodes'], y = df['score'], color = 'type', title = 'The Number of Episodes V. The Score')
+
+navy_explaination = "Overall, there isn't much to conclude from the relationship between the score and number of episodes anime or manga has. All types tended to have higher scores as their number of episodes, part, movies, etc increased but there isn't a difinitive trend as many manga/anime with fewer episodes had the higher scores."
+st.write(navy_explaination)
 
 
 #Alexia
 daf_themes = df['themes'].value_counts()
 themedf = df['themes'].value_counts().head(10)
 alexiavar1 = px.bar(themedf, title='Top Ten Themes of Anime')
+st.plotly_chart()
 
 musicdf = df[df['themes'] == "['Music']"]['status'].value_counts()
 alexiavar2 = px.pie(df, values = musicdf.values, names=musicdf.index)
@@ -83,6 +88,9 @@ alexiavar4 = px.pie(df, values = mechadf.values, names=mechadf.index)
 
 historicaldf = df[df['themes'] == "['Historical']"]['status'].value_counts()
 alexiavar5 = px.pie(df, values = historicaldf.values, names=historicaldf.index)
+
+explanation = 'According to the above bar graph, the top four themes for anime are Music, School, Mecha, and Historical. The four pie charts visually show us about what percent of the anime with these themes are currently airing or have finished airing. As a result, it is shown the anime with the Historical and Mecha themes have finished airing, while there are still some anime airing with the Music and School themes. Thus, these pie charts show that anime with Music and School themes are more likely to be currently airing than those with Mecha and Historical themes.'
+st.write(explanation)
 
 #Izaac
 score_v_scored = px.scatter(x = df['scored_by'], y = df['score'], title = 'Number of Scores vs. Score')
