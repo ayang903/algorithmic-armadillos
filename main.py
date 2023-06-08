@@ -129,26 +129,29 @@ else:
 
 
 #Alexia
+
 daf_themes = df['themes'].value_counts()
 themedf = df['themes'].value_counts().head(10)
+
 alexiavar1 = px.bar(themedf, title='Top Ten Themes of Anime', y="themes", color="themes", color_continuous_scale=px.colors.sequential.Turbo)
 st.plotly_chart(alexiavar1)
 
 musicdf = df[df['themes'] == "['Music']"]['status'].value_counts()
-alexiavar2 = px.pie(df, values = musicdf.values, names=musicdf.index, title='Music', color_discrete_sequence=px.colors.sequential.Burg)
+alexiavar2 = px.pie(musicdf, values = musicdf.values, names=musicdf.index, title='Music', color_discrete_sequence=px.colors.sequential.Burg)
 st.plotly_chart(alexiavar2)
 
 schooldf = df[df['themes'] == "['School']"]['status'].value_counts()
-alexiavar3 = px.pie(df, values = schooldf.values, names=schooldf.index, title='School', )
+alexiavar3 = px.pie(schooldf, values = schooldf.values, names=schooldf.index, title='School', color_discrete_sequence=px.colors.sequential.Agsunset_r)
 st.plotly_chart(alexiavar3)
 
 mechadf = df[df['themes'] == "['Mecha']"]['status'].value_counts()
-alexiavar4 = px.pie(df, values = mechadf.values, names=mechadf.index, title='Mecha')
+alexiavar4 = px.pie(mechadf, values = mechadf.values, names=mechadf.index, title='Mecha')
 st.plotly_chart(alexiavar4)
 
 historicaldf = df[df['themes'] == "['Historical']"]['status'].value_counts()
-alexiavar5 = px.pie(df, values = historicaldf.values, names=historicaldf.index, title='Historical')
+alexiavar5 = px.pie(historicaldf, values = historicaldf.values, names=historicaldf.index, title='Historical')
 st.plotly_chart(alexiavar5)
+
 
 explanation_alexia = 'According to the above bar graph, the top four themes for anime are Music, School, Mecha, and Historical. The four pie charts visually show us about what percent of the anime with these themes are currently airing or have finished airing. As a result, it is shown the anime with the Historical and Mecha themes have finished airing, while there are still some anime airing with the Music and School themes. Thus, these pie charts show that anime with Music and School themes are more likely to be currently airing than those with Mecha and Historical themes.'
 st.write(explanation_alexia)
