@@ -52,15 +52,26 @@ anish_var = px.bar(x = grouped_df.index,
                    y = grouped_df.values,
                    color = grouped_df.values, color_continuous_scale=px.colors.sequential.Burgyl)
 
+# anish_var.update_layout (
+#     title ='Average Score by Source Content',
+#     xaxis_title = "Source Content Type",
+#     yaxis_title = "Average Score"
+
+# )
+# anish_var.update_layout(yaxes_range = [0,10])
+# anish_var.update_layout(
+#     yaxis = dict(
+#         tickmode = 'linear',
+#         tick0 = 0,
+#         dtick = 0.5
+#     )
+# )
 anish_var.update_layout (
     title ='Average Score by Source Content',
     xaxis_title = "Source Content Type",
-    yaxis_title = "Average Score"
-
-)
-anish_var.update_layout(yaxes_range = [0,10])
-anish_var.update_layout(
+    yaxis_title = "Average Score",
     yaxis = dict(
+        range = [0,10],
         tickmode = 'linear',
         tick0 = 0,
         dtick = 0.5
@@ -124,11 +135,11 @@ alexiavar1 = px.bar(themedf, title='Top Ten Themes of Anime', y="themes", color=
 st.plotly_chart(alexiavar1)
 
 musicdf = df[df['themes'] == "['Music']"]['status'].value_counts()
-alexiavar2 = px.pie(df, values = musicdf.values, names=musicdf.index, title='Music')
+alexiavar2 = px.pie(df, values = musicdf.values, names=musicdf.index, title='Music', color_discrete_sequence=px.colors.sequential.Burg)
 st.plotly_chart(alexiavar2)
 
 schooldf = df[df['themes'] == "['School']"]['status'].value_counts()
-alexiavar3 = px.pie(df, values = schooldf.values, names=schooldf.index, title='School')
+alexiavar3 = px.pie(df, values = schooldf.values, names=schooldf.index, title='School', )
 st.plotly_chart(alexiavar3)
 
 mechadf = df[df['themes'] == "['Mecha']"]['status'].value_counts()
@@ -146,7 +157,7 @@ st.write(explanation_alexia)
 score_v_scored = px.scatter(x = df['scored_by'], y = df['score'], title = 'Number of Scores vs. Score', labels={"scored_by": "Number of Scores", 'score': 'Average Score'}, color='type', color_continuous_scale = 'viridis')
 st.plotly_chart(score_v_scored)
 st.write('This graph show a general exponetial curve that the more views a show has the higher it is rated. One can assume that this is because the better shows will be more popular. This graph also indicates that TV and Movies are scored a lot more than other types of media, and are usually scored higher.')
-scores = px.histogram(df, x = df['score'], labels={'score': 'Average Score'})
+scores = px.histogram(df, x = df['score'], labels={'score': 'Average Score'}))
 st.plotly_chart(scores)
 st.write('This graph shows the most common scores for shows. This graph shows a pretty perfect standard deviation with the average score being about 6.6')
 
