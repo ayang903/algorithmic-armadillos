@@ -157,7 +157,7 @@ st.write(explanation_alexia)
 score_v_scored = px.scatter(x = df['scored_by'], y = df['score'], title = 'Number of Scores vs. Score', labels={"scored_by": "Number of Scores", 'score': 'Average Score'}, color='type', color_continuous_scale = 'viridis')
 st.plotly_chart(score_v_scored)
 st.write('This graph show a general exponetial curve that the more views a show has the higher it is rated. One can assume that this is because the better shows will be more popular. This graph also indicates that TV and Movies are scored a lot more than other types of media, and are usually scored higher.')
-scores = px.histogram(df, x = df['score'], labels={'score': 'Average Score'}))
+scores = px.histogram(df, x = df['score'], labels={'score': 'Average Score'})
 st.plotly_chart(scores)
 st.write('This graph shows the most common scores for shows. This graph shows a pretty perfect standard deviation with the average score being about 6.6')
 
