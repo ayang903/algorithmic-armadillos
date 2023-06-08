@@ -136,22 +136,27 @@ themedf = df['themes'].value_counts().head(10)
 alexiavar1 = px.bar(themedf, title='Top Ten Themes of Anime',x=themedf.index, y=themedf.values, color=themedf.index)
 st.plotly_chart(alexiavar1)
 
-#select box here!
-musicdf = df[df['themes'] == "['Music']"]['status'].value_counts()
-alexiavar2 = px.pie(df, values = musicdf.values, names=musicdf.index, title='Music', color_discrete_sequence=px.colors.sequential.Burg)
+#try a select box here!
+option = st.selectbox(
+    'Choose a theme',
+    ('[]', "['Music']", "['School']", "['Mecha']", "['Historical']"))
+
+general_df = df[df['themes'] == option]['status'].value_counts()
+alexiavar2 = px.pie(df, values = general_df.values, names=general_df.index, title=option, color_discrete_sequence=px.colors.sequential.Burg)
 st.plotly_chart(alexiavar2)
 
-schooldf = df[df['themes'] == "['School']"]['status'].value_counts()
-alexiavar3 = px.pie(df, values = schooldf.values, names=schooldf.index, title='School', color_discrete_sequence=px.colors.sequential.Agsunset_r)
-st.plotly_chart(alexiavar3)
 
-mechadf = df[df['themes'] == "['Mecha']"]['status'].value_counts()
-alexiavar4 = px.pie(df, values = mechadf.values, names=mechadf.index, title='Mecha', color_discrete_sequence=px.colors.sequential.Tealgrn)
-st.plotly_chart(alexiavar4)
+# schooldf = df[df['themes'] == "['School']"]['status'].value_counts()
+# alexiavar3 = px.pie(df, values = schooldf.values, names=schooldf.index, title='School', color_discrete_sequence=px.colors.sequential.Agsunset_r)
+# st.plotly_chart(alexiavar3)
 
-historicaldf = df[df['themes'] == "['Historical']"]['status'].value_counts()
-alexiavar5 = px.pie(df, values = historicaldf.values, names=historicaldf.index, title='Historical', color_discrete_sequence=px.colors.sequential.Purples_r)
-st.plotly_chart(alexiavar5)
+# mechadf = df[df['themes'] == "['Mecha']"]['status'].value_counts()
+# alexiavar4 = px.pie(df, values = mechadf.values, names=mechadf.index, title='Mecha', color_discrete_sequence=px.colors.sequential.Tealgrn)
+# st.plotly_chart(alexiavar4)
+
+# historicaldf = df[df['themes'] == "['Historical']"]['status'].value_counts()
+# alexiavar5 = px.pie(df, values = historicaldf.values, names=historicaldf.index, title='Historical', color_discrete_sequence=px.colors.sequential.Purples_r)
+# st.plotly_chart(alexiavar5)
 
 explanation_alexia = 'According to the above bar graph, the top four themes for anime are Music, School, Mecha, and Historical. The four pie charts visually show us about what percent of the anime with these themes are currently airing or have finished airing. As a result, it is shown the anime with the Historical and Mecha themes have finished airing, while there are still some anime airing with the Music and School themes. Thus, these pie charts show that anime with Music and School themes are more likely to be currently airing than those with Mecha and Historical themes.'
 st.write(explanation_alexia)
