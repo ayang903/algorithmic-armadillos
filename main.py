@@ -132,9 +132,11 @@ else:
 daf_themes = df['themes'].value_counts()
 themedf = df['themes'].value_counts().head(10)
 
+# alexiavar1 = px.bar(themedf, title='Top Ten Themes of Anime',x=themedf.index, y=themedf.values, color=themedf.index, color_continuous_scale=px.colors.sequential.Turbo)
 alexiavar1 = px.bar(themedf, title='Top Ten Themes of Anime',x=themedf.index, y=themedf.values, color=themedf.index)
 st.plotly_chart(alexiavar1)
 
+#select box here!
 musicdf = df[df['themes'] == "['Music']"]['status'].value_counts()
 alexiavar2 = px.pie(df, values = musicdf.values, names=musicdf.index, title='Music', color_discrete_sequence=px.colors.sequential.Burg)
 st.plotly_chart(alexiavar2)
@@ -148,16 +150,17 @@ alexiavar4 = px.pie(df, values = mechadf.values, names=mechadf.index, title='Mec
 st.plotly_chart(alexiavar4)
 
 historicaldf = df[df['themes'] == "['Historical']"]['status'].value_counts()
-alexiavar5 = px.pie(df, values = historicaldf.values, names=historicaldf.index, title='Historical', )
+alexiavar5 = px.pie(df, values = historicaldf.values, names=historicaldf.index, title='Historical', color_discrete_sequence=px.colors.sequential.Purples_r)
 st.plotly_chart(alexiavar5)
 
 explanation_alexia = 'According to the above bar graph, the top four themes for anime are Music, School, Mecha, and Historical. The four pie charts visually show us about what percent of the anime with these themes are currently airing or have finished airing. As a result, it is shown the anime with the Historical and Mecha themes have finished airing, while there are still some anime airing with the Music and School themes. Thus, these pie charts show that anime with Music and School themes are more likely to be currently airing than those with Mecha and Historical themes.'
 st.write(explanation_alexia)
 
 #Izaac
-score_v_scored = px.scatter(x = df['scored_by'], y = df['score'], title = 'Number of Scores vs. Score', labels={"scored_by": "Number of Scores", 'score': 'Average Score'}, color='type', color_continuous_scale = 'viridis')
+score_v_scored = px.scatter(df, x = 'scored_by', y = 'score', title = 'Number of Scores vs. Score', labels={"scored_by": "Number of Scores", 'score': 'Average Score'}, color='type', color_continuous_scale = 'viridis')
 st.plotly_chart(score_v_scored)
 st.write('This graph show a general exponetial curve that the more views a show has the higher it is rated. One can assume that this is because the better shows will be more popular. This graph also indicates that TV and Movies are scored a lot more than other types of media, and are usually scored higher.')
+
 scores = px.histogram(df, x = df['score'], labels={'score': 'Average Score'})
 st.plotly_chart(scores)
 st.write('This graph shows the most common scores for shows. This graph shows a pretty perfect standard deviation with the average score being about 6.6')
