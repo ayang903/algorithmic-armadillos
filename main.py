@@ -142,7 +142,18 @@ option = st.selectbox(
     ('[]', "['Music']", "['School']", "['Mecha']", "['Historical']"))
 
 general_df = df[df['themes'] == option]['status'].value_counts()
-alexiavar2 = px.pie(df, values = general_df.values, names=general_df.index, title=option, color_discrete_sequence=px.colors.sequential.Burg)
+if option == '[]':
+  alexiavar2 = px.pie(df, values = general_df.values, names=general_df.index, title=option, color_discrete_sequence=px.colors.sequential.Burg)
+elif option == "['Music']":
+  alexiavar2 = px.pie(df, values = general_df.values, names=general_df.index, title=option, color_discrete_sequence=px.colors.sequential.Agsunset_r)
+elif option == "['School']":
+  alexiavar2 = px.pie(df, values = general_df.values, names=general_df.index, title=option, color_discrete_sequence=px.colors.sequential.Tealgrn)
+elif option == "['Mecha']":
+  alexiavar2 = px.pie(df, values = general_df.values, names=general_df.index, title=option, color_discrete_sequence=px.colors.sequential.Purples_r)
+else:
+  alexiavar2 = px.pie(df, values = general_df.values, names=general_df.index, title=option, color_discrete_sequence=px.colors.sequential.Viridis)
+
+
 st.plotly_chart(alexiavar2)
 
 
