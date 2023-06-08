@@ -72,7 +72,7 @@ st.write(amelia_explanation)
 #Navy
 ep_v_score = px.scatter(df, x = df['episodes'], y = df['score'], color = 'type', title = 'The Number of Episodes V. The Score')
 
-ep_v_score.update_layout(df, title = 'The Number of Episodes V. The Score', xaxis_title = 'Number of Episodes', yaxis_title = 'Score')
+#ep_v_score.update_layout(df, title = 'The Number of Episodes V. The Score', xaxis_title = 'Number of Episodes', yaxis_title = 'Score')
 
 st.plotly_chart(ep_v_score)
 navy_explaination = "Overall, there isn't much to conclude from the relationship between the score and number of episodes anime or manga has. All types tended to have higher scores as their number of episodes, part, movies, etc increased but there isn't a difinitive trend as many manga/anime with fewer episodes had the higher scores."
