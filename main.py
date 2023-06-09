@@ -13,7 +13,7 @@ st.write(anish_bio)
 amelia_bio = 'My name is Amelia, and this coming school year I will be a Junior in highschool. Prior to this course, I have little coding experience. However, I wish to continue to deepen my understanding of the subject.'
 st.write(amelia_bio)
 
-alexia_bio = 'My name is Alexia, and I will be going into my freshman year of college this Fall in 2023. My prior experience with coding includes the course of AP Computer Science Principles my junior year of high school, a Summer Immersion Program hosted by Girls Who Code, and a Self-Paced Program also hosted by Girls Who Code. The Self-Paced Program included courses on web development, web design, and presenting information on an event through a Python algorithmic.'
+alexia_bio = 'My name is Alexia, and I will be going into my freshman year of college this Fall in 2023. My prior experience with coding includes the course of AP Computer Science Principles my junior year of high school, a Summer Immersion Program hosted by Girls Who Code, and a Self-Paced Program also hosted by Girls Who Code. The Self-Paced Program included courses on web development, web design, and presenting information on an event through a Python-based algorithm.'
 st.write(alexia_bio)
 
 izaac_bio = 'My name is Izaac, I am going to be a highschool senior this fall semester and I have taken mutiple computer programing cources before. I have taken AP Computer Science in highschool, a HTMl programming cource at the University of Alaska Fairbanks, and I am going to be taking AP Computer Science A at highschool this year.'
@@ -95,7 +95,7 @@ ameliaVar.update_layout(
 ameliaVar.update_yaxes(range=[5.5, 7])
 
 st.plotly_chart(ameliaVar)
-amelia_explanation = 'From the data shown, "tv" recieved the highest score out of the media types. TV was found to recieve an average score of 6.92. The category with the next highest score with an average score of 6.51 was "movie". "Special" was found to be third in the average score recieved with a 6.47. In fourth, "ova", which had an average score of 6.35. Coming in fifth was "ona". Its average score was 6.18. Lastly, "music", which recieved an average score of 5.94. From this data one could assume that "tv" is the best (score wise) type of anime/manga media. Likewise, one could come to the conclusion that "music" is the worst (score wise) type of anime/manga media.'
+amelia_explanation = 'From the data shown, "tv" recieved the highest score out of the media types. TV was found to receive an average score of 6.92. The category with the next highest score with an average score of 6.51 was "movie". "Special" was found to be third in the average score received with a 6.47. In fourth, "ova", which had an average score of 6.35. Coming in fifth was "ona". Its average score was 6.18. Lastly, "music", which received an average score of 5.94. From this data one could assume that "tv" is the best (score wise) type of anime/manga media. Likewise, one could come to the conclusion that "music" is the worst (score wise) type of anime/manga media. This information can be valuable for understanding audience preferences and guiding decision-making in the entertainment industry.'
 st.write(amelia_explanation)
 
 #Navy
@@ -173,6 +173,24 @@ scores = px.histogram(df, x = df['score'], labels={'score': 'Average Score'})
 st.plotly_chart(scores)
 st.write('This graph shows the most common scores for shows. This graph shows a pretty perfect standard deviation with the average score being about 6.6.')
 
+# 1st. Talk about conclusions from your graphs/hypothesis
+# 2nd. What you learned this week
+# 3rd. Most interesting part of this week
+st.markdown("""---""")
+st.header("Conclusion")
 
 
+amelia_con = "My hypothesis was that tv shows would have the highest rating because they generally contain more content. My graph proved my hypothesis correct. This week, I learned how to use and understand Python. Additionally, I learned how to use data libraries in Python to visualize data. These data libraries add so much depth to these visualizations. Learning about all the ways these principles are used in real-life was the most interesting part of this week."
+st.write (amelia_con)
 
+navy_con = "Navy: For my first graph, my hypothesis was that the more parts an anime or manga had, the higher it's score would be. I thought this because if an anime or manga had higher production then it must be heavily enjoyed. My graph showed that there was a bit of a positive correlation between the number of parts and the score but it was very vague so the answer is inconclusive. My second graph was more to see the different types of anime and manga in the dataset and I'd conclude there's a good range of the six types they've included. My third my third graph was to see the range of scores across all of the media in the dataset and most of their scores were between 6 and 7.\nThis week at  camp I learned how to use the different libraries for data science such as numpy and plotly. I'd never really gone into too many python data visualising libraries before and now I can say that I can make a pretty cool plot.\nThe most interesting part of this week would be when we were able to put all of our graphs together."
+st.write(navy_con)
+
+alexia_con = 'My graphs proved that the theme of an anime can indeed have an effect on the airing status of said anime. Since my hypothesis stated that the theme or themes of an anime can affect its airing status, then my hypothesis was proven by the bar and pie graphs.\n I learned from AI Camp that python could be used to display graphs and the analyses made on those graphs on a website for all to see and interact with.\n The most interesting part of this week was how many various packages and modules could be imported into and used so cohesively in just one python file.'
+st.write(alexia_con)
+
+anish_con = "For my graph comparing average scores of anime based on their source content, my hypothesis was that anime coming from manga would have the highest score since manga is the most common source of content for anime. Although manga sourced anime did have high scores, the highest went to web novels and light novels. The biggest takeaways I have from this week are the vast uses that modules like Pandas have in terms of using and managing data sets, as well as the different modules that allow you to express that data like Plotly, Matplotlib, and Seaborn."
+st.write(anish_con)
+
+izaac_con = 'My hypotosis for the first graph I did was that the more reviews a show has, the better it is rated. I hypothosized this because if more people watch a show, then its probably a better show than onw with less views. This hypothosis turned out to be true with a visible curve in the graph representing the increase in score for the number of people that scored it. What I learned from this week is how to clean a dataset and how to turn that data set into visually appealing graphs. What I think most interesting part of this week was, was learning how machine learning works as well as other high level concepts.'
+st.write(izaac_con)
